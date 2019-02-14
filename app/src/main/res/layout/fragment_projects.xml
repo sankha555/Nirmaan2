@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background"
+        />
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:fillViewport="false"
+    android:layout_alignParentStart="true"
+    android:layout_alignParentLeft="true">
+
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/gbbs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="GB BAAS"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/header"
+            android:textSize="28sp"
+            android:elevation="10dp"
+            android:gravity="center"
+            android:layout_margin="8dp"/>
+
+        <TextView
+            android:id="@+id/gbcb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="GB CB"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/header"
+            android:textSize="28sp"
+            android:elevation="10dp"
+            android:gravity="center"
+            android:layout_margin="8dp"/>
+
+        <TextView
+            android:id="@+id/sap"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SAP"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/header"
+            android:textSize="28sp"
+            android:elevation="10dp"
+            android:gravity="center"
+            android:layout_margin="8dp"/>
+
+        <TextView
+            android:id="@+id/pcd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="PCD"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/header"
+            android:textSize="28sp"
+            android:elevation="10dp"
+            android:gravity="center"
+            android:layout_margin="8dp"/>
+
+        <TextView
+            android:id="@+id/sko"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SKO"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/header"
+            android:textSize="28sp"
+            android:elevation="10dp"
+            android:gravity="center"
+            android:layout_margin="8dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Utkarsh"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/header"
+            android:textSize="28sp"
+            android:elevation="10dp"
+            android:gravity="center"
+            android:layout_margin="8dp"
+            android:id="@+id/utkarsh"
+         />
+        <TextView
+            android:id="@+id/disha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Disha"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/header"
+            android:textSize="28sp"
+            android:elevation="10dp"
+            android:gravity="center"
+            android:layout_margin="8dp"/>
+
+        <TextView
+            android:id="@+id/un1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Unnati 1"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/header"
+            android:textSize="28sp"
+            android:elevation="10dp"
+            android:gravity="center"
+            android:layout_margin="8dp"/>
+
+        <TextView
+            android:id="@+id/un2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Unnati 2"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/header"
+            android:textSize="28sp"
+            android:elevation="10dp"
+            android:gravity="center"
+            android:layout_margin="8dp"/>
+
+
+    </LinearLayout>
+
+
+</ScrollView>
+</RelativeLayout>
+
