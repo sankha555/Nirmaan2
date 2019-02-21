@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
@@ -8,7 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@drawable/background"
-        android:scaleType="centerCrop"/>
+        android:scaleType="centerCrop"
+        tools:ignore="ContentDescription" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -16,14 +18,15 @@
 
 
     <TextView
+        android:id="@+id/homeinfo"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="10"
-        android:text="Updating Soon!!"
-        android:textSize="34sp"
+        android:text="Updating"
+        android:textSize="24sp"
         android:textColor="#ffffff"
-        android:gravity="center"
-       android:layout_gravity="center"/>
+       android:layout_gravity="center"
+        android:layout_margin="16dp"/>
     <ScrollView
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
@@ -36,7 +39,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:textSize="24sp"
+        android:textSize="18sp"
         android:textColor="#ffffff"
         android:gravity="start"
         android:id="@+id/notificaton_tab"

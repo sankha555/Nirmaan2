@@ -1,5 +1,6 @@
 package com.nirmaan_bits.nirmaan;
 
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
@@ -17,28 +18,27 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.messaging.FirebaseMessaging;
+import com.nirmaan_bits.nirmaan.Service.MyFirebaseSrevice;
 
 import java.util.Objects;
 
 @RequiresApi(api = Build.VERSION_CODES.KITKAT)
 public class MainActivity extends AppCompatActivity {
 
-
     private String currentuser = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
 
     private FirebaseAnalytics mFirebaseAnalytics =  FirebaseAnalytics.getInstance(this);
+public static final String MY_PREFS_NAME = "MyPrefsFile";
 
-
-    private  DatabaseReference databaseReference1= FirebaseDatabase.getInstance().getReference().child("notification").child("gbbaas");
-    private  DatabaseReference databaseReference2= FirebaseDatabase.getInstance().getReference().child("notification").child("gbcb");
-    private  DatabaseReference databaseReference3= FirebaseDatabase.getInstance().getReference().child("notification").child("sap");
-    private  DatabaseReference databaseReference4= FirebaseDatabase.getInstance().getReference().child("notification").child("pcd");
-    private  DatabaseReference databaseReference5= FirebaseDatabase.getInstance().getReference().child("notification").child("sko");
-    private  DatabaseReference databaseReference6 = FirebaseDatabase.getInstance().getReference().child("notification").child("utkarsh");
-
-    private  DatabaseReference databaseReference7= FirebaseDatabase.getInstance().getReference().child("notification").child("disha");
-    private  DatabaseReference databaseReference8= FirebaseDatabase.getInstance().getReference().child("notification").child("unnati1");
-    private  DatabaseReference databaseReference9= FirebaseDatabase.getInstance().getReference().child("notification").child("unnati2");
+    private  DatabaseReference databaseReference1= FirebaseDatabase.getInstance().getReference().child("notification").child("gbbaas").child("members");
+    private  DatabaseReference databaseReference2= FirebaseDatabase.getInstance().getReference().child("notification").child("gbcb").child("members");
+    private  DatabaseReference databaseReference3= FirebaseDatabase.getInstance().getReference().child("notification").child("sap").child("members");
+    private  DatabaseReference databaseReference4= FirebaseDatabase.getInstance().getReference().child("notification").child("pcd").child("members");
+    private  DatabaseReference databaseReference5= FirebaseDatabase.getInstance().getReference().child("notification").child("sko").child("members");
+    private  DatabaseReference databaseReference6= FirebaseDatabase.getInstance().getReference().child("notification").child("utkarsh").child("members");
+    private  DatabaseReference databaseReference7= FirebaseDatabase.getInstance().getReference().child("notification").child("disha").child("members");
+    private  DatabaseReference databaseReference8= FirebaseDatabase.getInstance().getReference().child("notification").child("unnati1").child("members");
+    private  DatabaseReference databaseReference9= FirebaseDatabase.getInstance().getReference().child("notification").child("unnati2").child("members");
 
 
     @Override
@@ -47,148 +47,206 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
+        SharedPreferences prefs = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
+        MyFirebaseSrevice.userProp= prefs.getInt("connect1", 0);
+
+
+    databaseReference1.addValueEventListener(new ValueEventListener() {
+        @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+        @Override
+        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                if (Objects.equals(Objects.requireNonNull(snapshot.child("id").getValue()).toString(), currentuser)) {
+                    mFirebaseAnalytics.setUserProperty("project", "gbbaas");
+                    MyFirebaseSrevice.userProp = 1;
+
+                    SharedPreferences.Editor editor = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
+                    editor.putInt("connect1", 1);
+                    editor.apply();
+                }
+            }
+        }
+
+        @Override
+        public void onCancelled(@NonNull DatabaseError databaseError) {
+        }
+    });
+
+
+    databaseReference2.addValueEventListener(new ValueEventListener() {
+        @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+        @Override
+        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                if (Objects.equals(Objects.requireNonNull(snapshot.child("id").getValue()).toString(), currentuser)) {
+                    mFirebaseAnalytics.setUserProperty("project", "gbcb");
+                    MyFirebaseSrevice.userProp = 2;
+
+                    SharedPreferences.Editor editor = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
+                    editor.putInt("connect1", 2);
+                    editor.apply();
+                }
+            }
+        }
+
+        @Override
+        public void onCancelled(@NonNull DatabaseError databaseError) {
+        }
+    });
+
+    databaseReference3.addValueEventListener(new ValueEventListener() {
+        @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+        @Override
+        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                if (Objects.equals(Objects.requireNonNull(snapshot.child("id").getValue()).toString(), currentuser)) {
+                    mFirebaseAnalytics.setUserProperty("project", "sap");
+
+                MyFirebaseSrevice.userProp = 3;
+
+                SharedPreferences.Editor editor = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
+                editor.putInt("connect1", 3);
+                editor.apply();
+            }}
+        }
+
+        @Override
+        public void onCancelled(@NonNull DatabaseError databaseError) {
+        }
+    });
+
+    databaseReference4.addValueEventListener(new ValueEventListener() {
+        @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+        @Override
+        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                if (Objects.equals(Objects.requireNonNull(snapshot.child("id").getValue()).toString(), currentuser)) {
+                    mFirebaseAnalytics.setUserProperty("project", "pcd");
+                    MyFirebaseSrevice.userProp = 4;
+
+                    SharedPreferences.Editor editor = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
+                    editor.putInt("connect1", 4);
+                    editor.apply();
+                }
+            }
+        }
+
+        @Override
+        public void onCancelled(@NonNull DatabaseError databaseError) {
+        }
+    });
+
+    databaseReference5.addValueEventListener(new ValueEventListener() {
+        @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+        @Override
+        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                if (Objects.equals(Objects.requireNonNull(snapshot.child("id").getValue()).toString(), currentuser)) {
+                    mFirebaseAnalytics.setUserProperty("project", "sko");
+
+                MyFirebaseSrevice.userProp = 5;
+
+                SharedPreferences.Editor editor = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
+                editor.putInt("connect1", 5);
+                editor.apply();
+            }}
+        }
+
+        @Override
+        public void onCancelled(@NonNull DatabaseError databaseError) {
+        }
+    });
+
+
+    databaseReference7.addValueEventListener(new ValueEventListener() {
+        @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+        @Override
+        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                if (Objects.equals(Objects.requireNonNull(snapshot.child("id").getValue()).toString(), currentuser)) {
+                    mFirebaseAnalytics.setUserProperty("project", "disha");
+                    MyFirebaseSrevice.userProp = 7;
+
+                    SharedPreferences.Editor editor = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
+                    editor.putInt("connect1", 7);
+                    editor.apply();
+                }
+            }
+        }
+
+        @Override
+        public void onCancelled(@NonNull DatabaseError databaseError) {
+        }
+    });
+
+    databaseReference8.addValueEventListener(new ValueEventListener() {
+        @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+        @Override
+        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                if (Objects.equals(Objects.requireNonNull(snapshot.child("id").getValue()).toString(), currentuser)) {
+                    mFirebaseAnalytics.setUserProperty("project", "unnati1");
+
+                    MyFirebaseSrevice.userProp = 8;
+
+                    SharedPreferences.Editor editor = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
+                    editor.putInt("connect1", 8);
+                    editor.apply();
+                }
+            }
+        }
+
+        @Override
+        public void onCancelled(@NonNull DatabaseError databaseError) {
+        }
+    });
+
+    databaseReference9.addValueEventListener(new ValueEventListener() {
+        @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+        @Override
+        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                if (Objects.equals(Objects.requireNonNull(snapshot.child("id").getValue()).toString(), currentuser)) {
+                    mFirebaseAnalytics.setUserProperty("project", "unnati2");
+                    MyFirebaseSrevice.userProp = 9;
+
+                    SharedPreferences.Editor editor = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
+                    editor.putInt("connect1", 9);
+                    editor.apply();
+                }
+            }
+        }
+
+        @Override
+        public void onCancelled(@NonNull DatabaseError databaseError) {
+        }
+    });
+
+
+    databaseReference6.addValueEventListener(new ValueEventListener() {
+        @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+        @Override
+        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                if (Objects.equals(Objects.requireNonNull(snapshot.child("id").getValue()).toString(), currentuser)) {
+                    mFirebaseAnalytics.setUserProperty("project", "utkarsh");
+                    MyFirebaseSrevice.userProp = 6;
+
+                    SharedPreferences.Editor editor = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
+                    editor.putInt("connect1", 6);
+                    editor.apply();
+                }
+            }
+        }
+
+        @Override
+        public void onCancelled(@NonNull DatabaseError databaseError) {
+        }
+    });
+
         BottomNavigationView bottomNav=findViewById(R.id.bottom_nav);
         bottomNav.setOnNavigationItemSelectedListener(navListen);
 
-
-
-
-
-
-       databaseReference1.addListenerForSingleValueEvent(new ValueEventListener() {
-            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    if(Objects.equals(snapshot.getValue(), currentuser))
-
-                        mFirebaseAnalytics.setUserProperty("project","gbbaas");
-                }
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-            }
-        });
-
-
-        databaseReference2.addListenerForSingleValueEvent(new ValueEventListener() {
-            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    if(Objects.equals(Objects.requireNonNull(snapshot.child("id").getValue()).toString(), currentuser))
-
-                        mFirebaseAnalytics.setUserProperty("project","gbcb");
-                }
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-            }
-        });
-
-        databaseReference3.addListenerForSingleValueEvent(new ValueEventListener() {
-            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    if(Objects.equals(snapshot.getValue(), currentuser))
-
-                        mFirebaseAnalytics.setUserProperty("project","sap");                }
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-            }
-        });
-
-        databaseReference4.addListenerForSingleValueEvent(new ValueEventListener() {
-            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    if(Objects.equals(snapshot.getValue(), currentuser))
-
-                        mFirebaseAnalytics.setUserProperty("project","pcd");
-                }
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-            }
-        });
-
-        databaseReference5.addListenerForSingleValueEvent(new ValueEventListener() {
-            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    if(Objects.equals(snapshot.getValue(), currentuser))
-
-                        mFirebaseAnalytics.setUserProperty("project","sko");                }
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-            }
-        });
-
-
-        databaseReference7.addListenerForSingleValueEvent(new ValueEventListener() {
-            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    if(Objects.equals(snapshot.getValue(), currentuser))
-
-                        mFirebaseAnalytics.setUserProperty("project","disha");                }
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-            }
-        });
-
-        databaseReference8.addListenerForSingleValueEvent(new ValueEventListener() {
-            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    if(Objects.equals(snapshot.getValue(), currentuser))
-
-                        mFirebaseAnalytics.setUserProperty("project","unnati1");
-                }
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-            }
-        });
-
-        databaseReference9.addListenerForSingleValueEvent(new ValueEventListener() {
-            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    if(Objects.equals(snapshot.getValue(), currentuser))
-
-                        mFirebaseAnalytics.setUserProperty("project","unnati2");
-                }
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-            }
-        });
-
-
-        databaseReference6.addListenerForSingleValueEvent(new ValueEventListener() {
-            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    if(Objects.equals(snapshot.child("id").getValue(), currentuser))
-
-                        mFirebaseAnalytics.setUserProperty("project","utkarsh");
-                }
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-            }
-        });
 
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment,new GalleryFragment()).commit();
 
@@ -205,7 +263,7 @@ private BottomNavigationView.OnNavigationItemSelectedListener navListen=new Bott
       case R.id.home:
           aba =  new GalleryFragment();
           break;
-
+    
       case R.id.project:
            aba =  new ProjectsFragment();
           break;
@@ -219,7 +277,7 @@ private BottomNavigationView.OnNavigationItemSelectedListener navListen=new Bott
   }
 
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment,aba).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment, Objects.requireNonNull(aba)).commit();
     return true;
     }
 

@@ -77,6 +77,8 @@ public class progress extends AppCompatActivity {
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+
+
     }
 
 
@@ -113,7 +115,8 @@ public class progress extends AppCompatActivity {
                                     prog+=pt*10;
 
                                     progressBar.setProgress(prog);
-                                    progno.setText(Integer.toString(prog));
+                                    String ab= Integer.toString(prog)+"%";
+                                    progno.setText(ab);
 
                                 }
 
@@ -154,7 +157,8 @@ public class progress extends AppCompatActivity {
         TextView plan ;
         ImageView image;
         CardView card;
-        public PlanViewHolder(@NonNull View itemView)
+
+        PlanViewHolder(@NonNull View itemView)
         {
             super(itemView);
 

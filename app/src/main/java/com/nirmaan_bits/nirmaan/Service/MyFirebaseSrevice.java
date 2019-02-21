@@ -22,6 +22,7 @@ import java.util.Objects;
 import java.util.Random;
 
 public class MyFirebaseSrevice extends FirebaseMessagingService  {
+    public static int userProp;
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
