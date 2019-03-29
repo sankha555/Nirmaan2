@@ -60,7 +60,6 @@ public class utkarsh_semPlan extends AppCompatActivity {
                 break;
         }
 
-        databaseReference.keepSynced(true);
         recyclerView=findViewById(R.id.planRecycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 

@@ -1,5 +1,7 @@
 package com.nirmaan_bits.nirmaan;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
@@ -70,7 +72,7 @@ switch (ProjectsFragment.project){
         break;
 }
 
-        databaseReference.keepSynced(true);
+
 
         recyclerView = findViewById(R.id.member_recycle);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -103,7 +105,7 @@ switch (ProjectsFragment.project){
                                 if (dataSnapshot.hasChild("pl")) {
 
                                     String mName = dataSnapshot.child("name").getValue().toString();
-                                    String mNumb = dataSnapshot.child("num").getValue().toString();
+                                    final String mNumb = dataSnapshot.child("num").getValue().toString();
                                     String mYear = dataSnapshot.child("year").getValue().toString();
 
                                     holder.name.setText(mName);
@@ -111,13 +113,23 @@ switch (ProjectsFragment.project){
                                     holder.contact.setText(mNumb);
                                     holder.pl.setText("PL");
 
+                                     holder.call.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View view) {
+                                            String no="tel:"+mNumb;
+
+                                            Intent intent = new Intent(Intent.ACTION_DIAL,Uri.parse(no));
+                                            startActivity(intent);
+                                        }
+                                    });
+
 
                                 }
 
                                 else {
 
                                     String mName = dataSnapshot.child("name").getValue().toString();
-                                    String mNumb = dataSnapshot.child("num").getValue().toString();
+                                    final String mNumb = dataSnapshot.child("num").getValue().toString();
                                     String mYear = dataSnapshot.child("year").getValue().toString();
 
 
@@ -125,7 +137,16 @@ switch (ProjectsFragment.project){
                                     holder.name.setText(mName);
                                     holder.year.setText(mYear);
                                     holder.contact.setText(mNumb);
+                                    holder.call.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View view) {
 
+                                            String no="tel:"+mNumb;
+
+                                            Intent intent = new Intent(Intent.ACTION_DIAL,Uri.parse(no));
+                                            startActivity(intent);
+                                        }
+                                    });
 
 
                                 }
@@ -159,7 +180,7 @@ switch (ProjectsFragment.project){
     public static class ContactViewHolder extends RecyclerView.ViewHolder{
 
         TextView name,contact,year,pl ;
-
+        ImageView call;
 
 
        public ContactViewHolder(@NonNull View itemView)
@@ -170,7 +191,7 @@ switch (ProjectsFragment.project){
             contact= itemView.findViewById(R.id.member_numb);
             year= itemView.findViewById(R.id.member_year);
             pl= itemView.findViewById(R.id.member_pl);
-
+            call=itemView.findViewById(R.id.call);
 
         }
 

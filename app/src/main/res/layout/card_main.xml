@@ -14,12 +14,15 @@
     android:layout_width="match_parent"
     android:layout_height="248dp"
     android:orientation="vertical"
-    android:background="#0288D1"
+    android:background="#3E6BC4"
     >
 <ImageView
     android:layout_width="match_parent"
     android:layout_height="0dp"
     android:scaleType="centerCrop"
+    android:padding="16dp"
+    android:src="@drawable/placeholder"
+    android:background="#FA1C1E5C"
     android:id="@+id/card_image"
     android:layout_weight="4"
     android:contentDescription="@string/todo"

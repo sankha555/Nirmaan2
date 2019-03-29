@@ -5,45 +5,77 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/background"
-        android:scaleType="centerCrop"
-        tools:ignore="ContentDescription" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <ScrollView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="7"
+            android:fillViewport="true"
+            android:layout_gravity="start"
 
+            >
     <TextView
         android:id="@+id/homeinfo"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="10"
-        android:text="Updating"
-        android:textSize="24sp"
-        android:textColor="#ffffff"
-       android:layout_gravity="center"
-        android:layout_margin="16dp"/>
-    <ScrollView
+        android:layout_height="wrap_content"
+        android:text="@string/updating"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="32dp"
+        android:textSize="16sp"
+        android:textColor="#2355A3"
+        android:layout_gravity="start"
+        android:layout_margin="16dp"
+        android:background="#ffffff"/>
+        </ScrollView>
+
+
+        <ScrollView
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_weight="1"
         android:fillViewport="false"
          android:layout_gravity="bottom">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:padding="8dp"
+                android:text="Notification"
+                android:textColor="#ffffff"
+                android:gravity="center"
+                android:background="@drawable/notification_bar"
+                />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:textSize="18sp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:text="Welcome to Nirmaan"
+        android:textSize="14sp"
         android:textColor="#ffffff"
         android:gravity="start"
         android:id="@+id/notificaton_tab"
+
         />
+</LinearLayout>
     </ScrollView>
     </LinearLayout>
 

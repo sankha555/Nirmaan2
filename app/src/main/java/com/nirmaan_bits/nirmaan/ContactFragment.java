@@ -2,6 +2,7 @@ package com.nirmaan_bits.nirmaan;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -15,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -59,6 +61,7 @@ public class ContactFragment extends Fragment {
                 new FirebaseRecyclerAdapter<Contact,ContactViewHolder>(options) {
 
 
+                    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
                     @Override
                     protected void onBindViewHolder(@NonNull final ContactViewHolder holder, int position, @NonNull Contact model) {
 
@@ -67,7 +70,7 @@ public class ContactFragment extends Fragment {
 
                         String musersId = getRef(position).getKey();
 
-                        databaseReference.child(musersId).addValueEventListener(new ValueEventListener() {
+                        databaseReference.child(Objects.requireNonNull(musersId)).addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
@@ -75,18 +78,40 @@ public class ContactFragment extends Fragment {
 
 
 
-                                    String mName = dataSnapshot.child("name").getValue().toString();
-                                    String mNumb = dataSnapshot.child("num").getValue().toString();
-                                    String mYear = dataSnapshot.child("position").getValue().toString();
-
-
+                                    String mName = Objects.requireNonNull(dataSnapshot.child("name").getValue()).toString();
+                                    final String mNumb = Objects.requireNonNull(dataSnapshot.child("num").getValue()).toString();
+                                    String mYear = Objects.requireNonNull(dataSnapshot.child("position").getValue()).toString();
+                                    final String mMail = Objects.requireNonNull(dataSnapshot.child("mail").getValue()).toString();
 
                                     holder.name.setText(mName);
-                                    holder.year.setText(mYear);
+                                    holder.pl.setText(mYear);
                                     holder.contact.setText(mNumb);
+                                    holder.mail.setText(mMail);
 
 
+                                holder.call.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        String no="tel:"+mNumb;
 
+                                        Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse(no));
+                                        startActivity(intent);
+                                    }
+                                });
+
+                                holder.send_mail.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+
+                                        Intent intent = new Intent(Intent.ACTION_SENDTO);
+                                        intent.setData(Uri.parse("mailto:"));
+                                        intent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{mMail});
+
+
+                                        if (intent.resolveActivity(Objects.requireNonNull(getActivity()).getPackageManager()) != null) {
+                                            startActivity(intent);}
+                                    }
+                                });
                                 }
 
 
@@ -104,7 +129,7 @@ public class ContactFragment extends Fragment {
                     @Override
                     public ContactViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
 
-                        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_item,viewGroup,false);
+                        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.contact_card,viewGroup,false);
                         return new ContactViewHolder(view);
                     }
                 };
@@ -117,7 +142,8 @@ public class ContactFragment extends Fragment {
 
     public static class ContactViewHolder extends RecyclerView.ViewHolder{
 
-        TextView name,contact,year,pl ;
+        TextView name,contact,mail,pl ;
+        ImageView call,send_mail;
 
 
 
@@ -125,11 +151,12 @@ public class ContactFragment extends Fragment {
         {
             super(itemView);
 
-            name = itemView.findViewById(R.id.member_name);
-            contact= itemView.findViewById(R.id.member_numb);
-            year= itemView.findViewById(R.id.member_year);
-            pl= itemView.findViewById(R.id.member_pl);
-
+            name = itemView.findViewById(R.id.contacts_member_name);
+            contact= itemView.findViewById(R.id.contacts_member_numb);
+            mail= itemView.findViewById(R.id.contacts_member_mail);
+            pl= itemView.findViewById(R.id.contacts_member_post);
+            call=itemView.findViewById(R.id.contacts_call);
+            send_mail=itemView.findViewById(R.id.contacts_mail);
 
         }
 
@@ -149,6 +176,14 @@ public class ContactFragment extends Fragment {
         databaseReference = FirebaseDatabase.getInstance().getReference().child("contact");
         databaseReference.keepSynced(true);
 
+        Button feed=homeView.findViewById(R.id.feedback);
+        feed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(),feedback.class);
+                startActivity(intent);
+            }
+        });
         return homeView;
 
     }

@@ -6,9 +6,10 @@ import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.view.View;
+import android.widget.ImageView;
 
 public class utkarsh extends AppCompatActivity implements View.OnClickListener {
-    private CardView utk1,utk2,utk3,utk4;
+    private ImageView utk1,utk2,utk3,utk4,utk5;
 
 
     @Override
@@ -56,6 +57,7 @@ switch (ProjectsFragment.project){
         utk2 = findViewById(R.id.utkarsh2);
         utk3 = findViewById(R.id.utkarsh3);
         utk4 = findViewById(R.id.utkarsh4);
+        utk5 = findViewById(R.id.utkarsh5);
 
         utk1.setOnClickListener(this);
 
@@ -64,6 +66,8 @@ switch (ProjectsFragment.project){
         utk3.setOnClickListener(this);
 
         utk4.setOnClickListener(this);
+
+        utk5.setOnClickListener(this);
     }
 
         @Override
@@ -85,6 +89,11 @@ switch (ProjectsFragment.project){
 
                 case R.id.utkarsh4:
                     i=new Intent(this,progress.class);
+                    startActivity(i);
+                    break;
+
+                case R.id.utkarsh5:
+                    i=new Intent(this,achievements.class);
                     startActivity(i);
                     break;
 default:break;

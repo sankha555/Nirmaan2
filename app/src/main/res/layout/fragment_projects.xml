@@ -13,12 +13,11 @@
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
         android:scaleType="centerCrop"
-        android:src="@drawable/background"
         />
 
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:fillViewport="false"
     android:layout_alignParentStart="true"
@@ -35,110 +34,118 @@
         <TextView
             android:id="@+id/gbbs"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="GB BAAS"
-            android:textColor="#FFFFFF"
-            android:background="@drawable/header"
+            android:layout_height="60dp"
+            android:text="@string/gb_baas"
+            android:textColor="#0C2E96"
+            android:background="@drawable/rectangle2"
             android:textSize="28sp"
-            android:elevation="10dp"
+            android:elevation="100dp"
             android:gravity="center"
-            android:layout_margin="8dp"/>
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="32dp"
+            />
 
         <TextView
             android:id="@+id/gbcb"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="GB CB"
-            android:textColor="#FFFFFF"
-            android:background="@drawable/header"
+            android:layout_height="60dp"
+            android:text="@string/gb_cb"
+            android:textColor="#0C2E96"
+            android:background="@drawable/rectangle2"
             android:textSize="28sp"
-            android:elevation="10dp"
+            android:elevation="100dp"
             android:gravity="center"
-            android:layout_margin="8dp"/>
+            android:layout_margin="16dp"/>
 
         <TextView
             android:id="@+id/sap"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="SAP"
-            android:textColor="#FFFFFF"
-            android:background="@drawable/header"
+            android:layout_height="60dp"
+            android:text="@string/sap"
+            android:textColor="#0C2E96"
+            android:background="@drawable/rectangle2"
             android:textSize="28sp"
-            android:elevation="10dp"
+            android:elevation="100dp"
             android:gravity="center"
-            android:layout_margin="8dp"/>
+            android:layout_margin="16dp"/>
 
         <TextView
             android:id="@+id/pcd"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="PCD"
-            android:textColor="#FFFFFF"
-            android:background="@drawable/header"
+            android:layout_height="60dp"
+            android:text="@string/pcd"
+            android:textColor="#0C2E96"
+            android:background="@drawable/rectangle2"
             android:textSize="28sp"
-            android:elevation="10dp"
+            android:elevation="100dp"
             android:gravity="center"
-            android:layout_margin="8dp"/>
+            android:layout_margin="16dp"/>
 
         <TextView
             android:id="@+id/sko"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="SKO"
-            android:textColor="#FFFFFF"
-            android:background="@drawable/header"
+            android:layout_height="60dp"
+            android:text="@string/sko"
+            android:textColor="#0C2E96"
+            android:background="@drawable/rectangle2"
             android:textSize="28sp"
-            android:elevation="10dp"
+            android:elevation="100dp"
             android:gravity="center"
-            android:layout_margin="8dp"/>
+            android:layout_margin="16dp"/>
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Utkarsh"
-            android:textColor="#FFFFFF"
-            android:background="@drawable/header"
+            android:layout_height="60dp"
+            android:text="@string/utkarsh"
+            android:textColor="#0C2E96"
+            android:background="@drawable/rectangle2"
             android:textSize="28sp"
-            android:elevation="10dp"
+            android:elevation="100dp"
             android:gravity="center"
-            android:layout_margin="8dp"
+            android:layout_margin="16dp"
             android:id="@+id/utkarsh"
          />
         <TextView
             android:id="@+id/disha"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Disha"
-            android:textColor="#FFFFFF"
-            android:background="@drawable/header"
+            android:layout_height="60dp"
+            android:text="@string/disha"
+            android:textColor="#0C2E96"
+            android:background="@drawable/rectangle2"
             android:textSize="28sp"
-            android:elevation="10dp"
+            android:elevation="100dp"
             android:gravity="center"
-            android:layout_margin="8dp"/>
+            android:layout_margin="16dp"/>
 
         <TextView
             android:id="@+id/un1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Unnati 1"
-            android:textColor="#FFFFFF"
-            android:background="@drawable/header"
+            android:layout_height="60dp"
+            android:text="@string/unnati_1"
+            android:textColor="#0C2E96"
+            android:background="@drawable/rectangle2"
             android:textSize="28sp"
-            android:elevation="10dp"
+            android:elevation="100dp"
             android:gravity="center"
-            android:layout_margin="8dp"/>
+            android:layout_margin="16dp"/>
 
         <TextView
             android:id="@+id/un2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Unnati 2"
-            android:textColor="#FFFFFF"
-            android:background="@drawable/header"
+            android:layout_height="60dp"
+            android:text="@string/unnati_2"
+            android:textColor="#0C2E96"
+            android:background="@drawable/rectangle2"
             android:textSize="28sp"
-            android:elevation="10dp"
+            android:elevation="100dp"
             android:gravity="center"
-            android:layout_margin="8dp"/>
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="32dp"
+            />
 
 
     </LinearLayout>

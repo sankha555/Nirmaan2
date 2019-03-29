@@ -5,13 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/background">
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/bottom_nav"
-        android:id="@+id/fragment"/>
+        android:id="@+id/fragment"
+        />
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/bottom_nav"
@@ -19,9 +21,15 @@
         android:layout_height="48dp"
         android:layout_alignParentBottom="true"
         app:menu="@menu/bottom_nav"
-        android:background="@drawable/header"
+        android:background="@drawable/recatangle"
         app:elevation="16dp"
-        app:itemIconTint="#FFFFFF"
+        app:itemIconTint="#1E45B1"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginLeft="24dp"
+
+
         />
 
 

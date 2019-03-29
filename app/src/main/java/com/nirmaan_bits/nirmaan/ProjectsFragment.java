@@ -153,8 +153,6 @@ public class ProjectsFragment extends Fragment {
 
                                        startActivity(in);}
                                }
-
-
         );
 return view;
     }

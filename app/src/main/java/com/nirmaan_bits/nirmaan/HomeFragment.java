@@ -72,18 +72,19 @@ LinearLayoutManager linearLayoutManager =new LinearLayoutManager(getContext());
 
                         assert musersId != null;
                         databaseReference.child(musersId).addValueEventListener(new ValueEventListener() {
+                            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
                             @Override
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                                 if (dataSnapshot.hasChild("image")) {
 
-                                    final String profImage = dataSnapshot.child("image").getValue().toString();
-                                    String profTitle = dataSnapshot.child("title").getValue().toString();
-                                    final String profDesc = dataSnapshot.child("desc").getValue().toString();
+                                    final String profImage = Objects.requireNonNull(dataSnapshot.child("image").getValue()).toString();
+                                    String profTitle = Objects.requireNonNull(dataSnapshot.child("title").getValue()).toString();
+                                    final String profDesc = Objects.requireNonNull(dataSnapshot.child("desc").getValue()).toString();
 
                                     holder.title.setText(profTitle);
                                     Picasso.with(getContext()).load(profImage).into(holder.imageic);
-
+                                    holder.imageic.setPadding(0,0,0,0);
                                     holder.imageic.setOnClickListener(new View.OnClickListener() {
                                         @Override
                                         public void onClick(View view) {
@@ -99,11 +100,11 @@ LinearLayoutManager linearLayoutManager =new LinearLayoutManager(getContext());
 
                                 else {
 
-                                    String profTitle = dataSnapshot.child("title").getValue().toString();
-                                    final String profDesc = dataSnapshot.child("desc").getValue().toString();
+                                    String profTitle = Objects.requireNonNull(dataSnapshot.child("title").getValue()).toString();
+                                    final String profDesc = Objects.requireNonNull(dataSnapshot.child("desc").getValue()).toString();
+                                    Picasso.with(getContext()).load(R.drawable.placeholder).into(holder.imageic);
 
                                     holder.title.setText(profTitle);
-                                    Picasso.with(getContext()).load(R.drawable.logo).into(holder.imageic);
 holder.imageic.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View view) {

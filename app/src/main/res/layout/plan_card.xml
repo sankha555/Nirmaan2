@@ -12,18 +12,20 @@
     android:id="@+id/planCard"
     >
 <LinearLayout
+    android:id="@+id/planCardlinear"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:background="#0288D1"
+    android:background="#ffffff"
     >
     <TextView
         android:layout_width="0dp"
         android:layout_weight="5"
         android:layout_height="wrap_content"
-        android:textColor="#ffffff"
+        android:textColor="#0C2E96"
         android:textSize="18sp"
         android:id="@+id/pretext"
+        android:background="@drawable/recatangle"
         android:layout_margin="8dp"
         />
     <ImageView

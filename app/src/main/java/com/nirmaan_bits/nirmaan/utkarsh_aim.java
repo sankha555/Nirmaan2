@@ -55,7 +55,6 @@ utkarsh_aim extends AppCompatActivity {
                 break;
         }
 
-        databaseReference.keepSynced(true);
         paim=findViewById(R.id.aim);
 
     }

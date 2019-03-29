@@ -55,7 +55,6 @@ String body = data.get("body");
             notificationChannel.enableLights(true);
             notificationManager.createNotificationChannel(notificationChannel);
 
-
         }
 
         NotificationCompat.Builder notificatonBuilder = new NotificationCompat.Builder(this,NOTIFICATION_CAHNNEL_ID);
@@ -86,7 +85,6 @@ String body = data.get("body");
         notificationChannel.enableLights(true);
         notificationManager.createNotificationChannel(notificationChannel);
 
-
         }
 
         NotificationCompat.Builder notificatonBuilder = new NotificationCompat.Builder(this,NOTIFICATION_CAHNNEL_ID);
@@ -100,7 +98,6 @@ String body = data.get("body");
                 .setContentInfo("Info");
 
         notificationManager.notify(new Random().nextInt(),notificatonBuilder.build());
-
 
     }
 

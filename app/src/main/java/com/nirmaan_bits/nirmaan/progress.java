@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -120,7 +121,19 @@ public class progress extends AppCompatActivity {
 
                                 }
 
-                                else {holder.card.setVisibility(View.GONE);}
+                                else {
+
+                                    holder.card.setVisibility(View.GONE);
+                                    ViewGroup.LayoutParams params=holder.linearLayout.getLayoutParams();
+                                    ViewGroup.MarginLayoutParams params1= (ViewGroup.MarginLayoutParams) holder.card.getLayoutParams();
+                                    params.height=0;
+                                    params.width=0;
+                                    params1.setMargins(0,0,0,0);
+                                    holder.linearLayout.setLayoutParams(params);
+                                    holder.card.setLayoutParams(params1);
+                                    holder.linearLayout.setVisibility(View.GONE);
+
+                                }
 
                             }
 
@@ -157,11 +170,12 @@ public class progress extends AppCompatActivity {
         TextView plan ;
         ImageView image;
         CardView card;
+        LinearLayout linearLayout;
 
         PlanViewHolder(@NonNull View itemView)
         {
             super(itemView);
-
+            linearLayout=itemView.findViewById(R.id.planCardlinear);
             plan = itemView.findViewById(R.id.pretext);
             image=itemView.findViewById(R.id.complete);
             card=itemView.findViewById(R.id.planCard);
