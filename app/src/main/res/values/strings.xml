@@ -29,7 +29,7 @@
     <string name="projects">Projects</string>
     <string name="gallery">Gallery</string>
     <string name="contact">Contact</string>
-    <string name="updating">Updating</string>
+    <string name="updating">No Internet Detected</string>
     <string name="send">Send</string>
     <string name="description">description</string>
 
