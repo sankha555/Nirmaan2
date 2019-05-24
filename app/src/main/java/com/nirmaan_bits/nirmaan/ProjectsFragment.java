@@ -21,19 +21,6 @@ public class ProjectsFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
 
-       /* ArrayList<String> proj = new ArrayList<>();
-        proj.add("GB Baas");
-        proj.add("GB CB");
-        proj.add("Unnati 1");
-        proj.add("Unnati 2");
-        proj.add("SAP");
-        proj.add("SKO");
-        proj.add("Utkarsh");
-        proj.add("PCD");
-        proj.add("Disha");
-       */
-
-
         View view= inflater.inflate(R.layout.fragment_projects, container, false);
 
 
