@@ -18,9 +18,10 @@
     android:title="@string/gallery"
     android:icon="@drawable/ic_gallery_image_black_24dp"
 />
+
     <item
-    android:id="@+id/contact"
-    android:title="@string/contact"
-    android:icon="@drawable/ic_contacts_black_24dp"
+        android:id="@+id/attendance"
+        android:title="@string/Attendance"
+        android:icon="@drawable/atttendance_24dp"
         />
 </menu>

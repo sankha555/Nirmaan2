@@ -2,14 +2,15 @@ package com.nirmaan_bits.nirmaan;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.CardView;
+import com.google.android.material.appbar.CollapsingToolbarLayout;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 public class utkarsh extends AppCompatActivity implements View.OnClickListener {
-    private ImageView utk1,utk2,utk3,utk4,utk5;
+    private Button utk1,utk2,utk3,utk4,utk5;
 
 
     @Override
@@ -24,7 +25,7 @@ switch (ProjectsFragment.project){
         collapsingToolbarLayout.setTitle("GB Baas");
     break;
     case 2:
-        collapsingToolbarLayout.setTitle("GB CB");
+        collapsingToolbarLayout.setTitle("PKP");
         break;
     case 3:
         collapsingToolbarLayout.setTitle("SAP");
@@ -46,6 +47,9 @@ switch (ProjectsFragment.project){
         break;
     case 9:
         collapsingToolbarLayout.setTitle("Unnati 2");
+        break;
+    case 10:
+        collapsingToolbarLayout.setTitle("Youth");
         break;
         default:break;
 

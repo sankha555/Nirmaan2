@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+        <item
+            android:id="@+id/gb_bass"
+            android:title="GB BASS" />
+
+        <item
+            android:id="@+id/gb_cb"
+            android:title="GB CB" />
+
+        <item
+            android:id="@+id/sap"
+            android:title="SAP" />
+
+        <item
+            android:id="@+id/pcd"
+            android:title="PCD" />
+        <item
+            android:id="@+id/sko"
+            android:title="SKO" />
+
+        <item
+            android:id="@+id/utkarsh"
+            android:title="UTKARSH" />
+
+        <item
+            android:id="@+id/disha"
+            android:title="DISHA" />
+
+        <item
+            android:id="@+id/unnati_1"
+            android:title="UNNATI 1" />
+
+        <item
+            android:id="@+id/unnati_2"
+            android:title="UNNATI 2" />
+        <item
+            android:id="@+id/youth"
+            android:title="YOUTH" />
+
+
+    </menu>
+

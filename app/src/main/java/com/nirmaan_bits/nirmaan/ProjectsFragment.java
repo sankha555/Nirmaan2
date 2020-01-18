@@ -2,16 +2,13 @@ package com.nirmaan_bits.nirmaan;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
-import java.util.ArrayList;
 
 public class ProjectsFragment extends Fragment {
     public static int project;
@@ -33,8 +30,10 @@ public class ProjectsFragment extends Fragment {
         TextView disha =view.findViewById(R.id.disha);
         TextView un1 =view.findViewById(R.id.un1);
         TextView un2 =view.findViewById(R.id.un2);
+        TextView youth =view.findViewById(R.id.youth);
 
- gbbaas.setOnClickListener(new View.OnClickListener(){
+
+        gbbaas.setOnClickListener(new View.OnClickListener(){
 
     @Override
     public void onClick(View v){
@@ -140,6 +139,18 @@ public class ProjectsFragment extends Fragment {
 
                                        startActivity(in);}
                                }
+
+        );
+        youth.setOnClickListener(new View.OnClickListener(){
+
+                                   @Override
+                                   public void onClick(View v){
+                                       Intent in= new Intent(getActivity(),utkarsh.class);
+                                       project =10;
+
+                                       startActivity(in);}
+                               }
+
         );
 return view;
     }

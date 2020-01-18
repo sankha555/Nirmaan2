@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">\
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choose Images"
+        android:id="@+id/chooser"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Upload Images"
+        android:id="@+id/upload_image"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:id="@+id/alert"
+        android:layout_height="wrap_content"
+        android:text="here will be alert"
+        android:textSize="20sp"
+        android:textAlignment="center"
+        android:layout_marginTop="30dp"
+        android:visibility="gone"/>
+
+
+
+
+
+</LinearLayout>

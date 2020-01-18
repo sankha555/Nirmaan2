@@ -1,13 +1,13 @@
 package com.nirmaan_bits.nirmaan;
 
 import android.os.Build;
-import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,7 +31,7 @@ public class progress extends AppCompatActivity {
 
     private DatabaseReference databaseReference;
     private RecyclerView recyclerView;
-    private  int prog=0;
+    private  double prog=0;
     private ProgressBar progressBar;
     private TextView progno;
 
@@ -67,6 +67,9 @@ public class progress extends AppCompatActivity {
                 break;
             case 9:
                 databaseReference = FirebaseDatabase.getInstance().getReference().child("Projects").child("unnati2").child("semplan");
+                break;
+            case 10:
+                databaseReference = FirebaseDatabase.getInstance().getReference().child("Projects").child("youth").child("semplan");
                 break;
         }
 
@@ -108,15 +111,15 @@ public class progress extends AppCompatActivity {
 
                                 if(Objects.requireNonNull(dataSnapshot.child("complete").getValue()).toString().equals("yes")) {
                                     String mName = Objects.requireNonNull(dataSnapshot.child("plan").getValue()).toString();
-                                    int pt=Integer.parseInt(Objects.requireNonNull(dataSnapshot.child("weight").getValue()).toString());
+                                    double pt=Double.parseDouble(Objects.requireNonNull(dataSnapshot.child("weight").getValue()).toString());
 
                                     holder.plan.setText(mName);
                                     holder.image.setVisibility(View.VISIBLE);
 
                                     prog+=pt*10;
 
-                                    progressBar.setProgress(prog);
-                                    String ab= Integer.toString(prog)+"%";
+                                    progressBar.setProgress((int) prog);
+                                    String ab= Integer.toString((int) prog)+"%";
                                     progno.setText(ab);
 
                                 }

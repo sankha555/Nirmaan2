@@ -1,135 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
     android:fitsSystemWindows="false"
-    tools:context="com.nirmaan_bits.nirmaan.MainActivity"
-    >
+    tools:context="com.nirmaan_bits.nirmaan.MainActivity">
 
-    <android.support.design.widget.AppBarLayout
+    <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fitsSystemWindows="false"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-        <android.support.design.widget.CollapsingToolbarLayout
+        <com.google.android.material.appbar.CollapsingToolbarLayout
             android:id="@+id/toolbar_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
             app:contentScrim="@color/colorPrimaryDark"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed"
-            app:title="Utkarsh"
-            app:expandedTitleMarginStart="48dp"
             app:expandedTitleMarginEnd="64dp"
-            >
+            app:expandedTitleMarginStart="48dp"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:title="Utkarsh">
 
             <ImageView
                 android:id="@+id/expandedImage"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:scaleType="centerCrop"
+                android:background="#333333"
                 android:padding="16dp"
-                android:src="@drawable/placeholder"
-                android:background="#FA1C1E5C"
-                />
-
-
-
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                app:popupTheme="@style/ThemeOverlay.AppCompat.Dark"
+                android:scaleType="centerCrop"
                  />
 
 
-        </android.support.design.widget.CollapsingToolbarLayout>
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Dark" />
 
-    </android.support.design.widget.AppBarLayout>
 
-    <android.support.v4.widget.NestedScrollView
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        android:background="@drawable/background"
-        >
+        android:background="@color/black"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            xmlns:tools="http://schemas.android.com/tools"
+        <LinearLayout
             android:id="@+id/ll"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/background"
+            android:background="@color/black"
             android:gravity="center"
             android:orientation="vertical"
             android:padding="20dp"
             tools:context="com.nirmaan_bits.nirmaan.MainActivity">
 
-            <ImageView
+            <Button
                 android:id="@+id/utkarsh1"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="80dp"
                 android:layout_marginTop="48dp"
                 android:layout_weight="2"
+                android:background="@color/colorPrimaryDark"
                 android:clickable="true"
+                android:drawableLeft="@drawable/aim"
                 android:focusable="true"
+                android:paddingLeft="30dip"
                 android:scaleType="centerCrop"
-                android:src="@drawable/aim_button"
-                />
+                android:text="AIM"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
 
-            <ImageView
+            <Button
                 android:id="@+id/utkarsh2"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="80dp"
                 android:layout_marginTop="40dp"
                 android:layout_weight="2"
+                android:background="@color/colorPrimaryDark"
                 android:clickable="true"
+                android:drawableLeft="@drawable/semplan"
                 android:focusable="true"
+                android:paddingLeft="30dip"
                 android:scaleType="centerCrop"
-                android:src="@drawable/sem_plan_button" />
+                android:text="SEMESTER PLAN"
+                android:textColor="@android:color/white"
+                android:textSize="18sp" />
 
-            <ImageView
+            <Button
                 android:id="@+id/utkarsh3"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="80dp"
                 android:layout_marginTop="40dp"
                 android:layout_weight="2"
+                android:background="@color/colorPrimaryDark"
                 android:clickable="true"
+                android:drawableLeft="@drawable/members"
                 android:focusable="true"
+                android:paddingLeft="30dip"
                 android:scaleType="centerCrop"
-                android:src="@drawable/members_button" />
+                android:text="MEMBERS"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
 
-            <ImageView
+            <Button
                 android:id="@+id/utkarsh4"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="80dp"
                 android:layout_marginTop="40dp"
                 android:layout_weight="2"
+                android:background="@color/colorPrimaryDark"
                 android:clickable="true"
+                android:drawableLeft="@drawable/progress_24dp"
                 android:focusable="true"
+                android:paddingLeft="30dip"
                 android:scaleType="centerCrop"
-                android:src="@drawable/progress_button" />
+                android:text="PROGRESS"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
 
-            <ImageView
+            <Button
                 android:id="@+id/utkarsh5"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="80dp"
                 android:layout_marginTop="40dp"
                 android:layout_marginBottom="40dp"
                 android:layout_weight="2"
+                android:background="@color/colorPrimaryDark"
                 android:clickable="true"
+                android:drawableLeft="@drawable/achievements"
                 android:focusable="true"
-                android:scaleType="centerCrop"
-                android:src="@drawable/achievements_button"
 
-                />
+                android:paddingLeft="30dip"
+                android:scaleType="centerCrop"
+                android:text="ACHIEVEMENTS"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
 
         </LinearLayout>
-    </android.support.v4.widget.NestedScrollView>
-</android.support.design.widget.CoordinatorLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

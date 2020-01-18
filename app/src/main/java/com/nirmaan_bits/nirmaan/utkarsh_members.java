@@ -2,31 +2,26 @@ package com.nirmaan_bits.nirmaan;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Build;
-import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.squareup.picasso.Picasso;
-
-import java.util.ArrayList;
 
 public class utkarsh_members extends AppCompatActivity {
 
@@ -70,6 +65,9 @@ switch (ProjectsFragment.project){
     case 9:
         databaseReference = FirebaseDatabase.getInstance().getReference().child("Projects").child("unnati2").child("members");
         break;
+    case 10:
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("Projects").child("youth").child("members");
+        break;
 }
 
 
@@ -101,6 +99,17 @@ switch (ProjectsFragment.project){
                         databaseReference.child(musersId).addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                int visits =0;
+                                if (dataSnapshot.child("history").getValue() != null){
+                                    for (DataSnapshot snapshot1 : dataSnapshot.child("history").getChildren()) {
+                                        if (snapshot1.child("status").getValue().equals("Present")){
+                                            visits++;
+
+                                        }
+                                    }
+                                }
+
+                                holder.visits.setText("" + visits);
 
                                 if (dataSnapshot.hasChild("pl")) {
 
@@ -137,6 +146,7 @@ switch (ProjectsFragment.project){
                                     holder.name.setText(mName);
                                     holder.year.setText(mYear);
                                     holder.contact.setText(mNumb);
+                                    holder.pl.setText("");
                                     holder.call.setOnClickListener(new View.OnClickListener() {
                                         @Override
                                         public void onClick(View view) {
@@ -179,13 +189,14 @@ switch (ProjectsFragment.project){
 
     public static class ContactViewHolder extends RecyclerView.ViewHolder{
 
-        TextView name,contact,year,pl ;
+        TextView name,contact,year,pl,visits ;
         ImageView call;
 
 
        public ContactViewHolder(@NonNull View itemView)
         {
             super(itemView);
+            visits = itemView.findViewById(R.id.visits_total);
 
             name = itemView.findViewById(R.id.member_name);
             contact= itemView.findViewById(R.id.member_numb);

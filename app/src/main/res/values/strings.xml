@@ -17,7 +17,7 @@
     <string name="feedback">Feedback</string>
     <string name="sign_out">Sign Out</string>
     <string name="gb_baas">GB BAAS</string>
-    <string name="gb_cb">GB CB</string>
+    <string name="gb_cb">PKP</string>
     <string name="sap">SAP</string>
     <string name="pcd">PCD</string>
     <string name="sko">SKO</string>
@@ -32,6 +32,12 @@
     <string name="updating">No Internet Detected</string>
     <string name="send">Send</string>
     <string name="description">description</string>
+    <string name="Attendance">Attendance</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="youth">YOUTH</string>
+    <string name="all_nirmaan">ALL NIRMAAN</string>
 
 
 </resources>

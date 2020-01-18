@@ -3,62 +3,63 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".progress"
+    android:background="@color/black"
     android:orientation="vertical"
-    android:background="@drawable/background">
-  <RelativeLayout
-      android:layout_width="match_parent"
-      android:layout_height="0dp"
-      android:layout_weight="1"
-      android:id="@+id/pre">
+    tools:context=".progress">
 
-      <ProgressBar
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        style="?android:progressBarStyleHorizontal"
-        android:progress="100"
-        android:animationResolution="@integer/google_play_services_version"
-        android:progressDrawable="@drawable/circle"
-        android:layout_centerInParent="true"
-          android:indeterminate="false"
-          android:rotation="-90"
-
-        />
-      <ProgressBar
-          android:layout_width="250dp"
-          android:layout_height="250dp"
-          style="?android:progressBarStyleHorizontal"
-          android:progress="0"
-          android:animationResolution="@integer/google_play_services_version"
-          android:progressDrawable="@drawable/circle2"
-          android:layout_centerInParent="true"
-          android:id="@+id/progbar"
-          android:indeterminate="false"
-          android:rotation="-90"
-
-          />
-
-      <TextView
-          android:id="@+id/progno"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_centerInParent="true"
-          android:textSize="44sp"
-          android:text="0"
-          android:textColor="#ffffff"
-
-          />
-
-
-
-  </RelativeLayout>
-    <android.support.v7.widget.RecyclerView
-
-        android:layout_weight="1"
+    <RelativeLayout
+        android:id="@+id/pre"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:id="@+id/progress_recycle"
-        >
+        android:layout_weight="1">
 
-    </android.support.v7.widget.RecyclerView>
+        <ProgressBar
+            style="?android:progressBarStyleHorizontal"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_centerInParent="true"
+            android:animationResolution="@integer/google_play_services_version"
+            android:indeterminate="false"
+            android:progress="100"
+            android:progressDrawable="@drawable/circle"
+            android:rotation="-90"
+
+            />
+
+        <ProgressBar
+            android:id="@+id/progbar"
+            style="?android:progressBarStyleHorizontal"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_centerInParent="true"
+            android:animationResolution="@integer/google_play_services_version"
+            android:indeterminate="false"
+            android:progress="0"
+            android:progressDrawable="@drawable/circle2"
+            android:rotation="-90"
+
+            />
+
+        <TextView
+            android:id="@+id/progno"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="0"
+            android:textColor="#ffffff"
+            android:textSize="44sp"
+
+            />
+
+
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+
+        android:id="@+id/progress_recycle"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+    </androidx.recyclerview.widget.RecyclerView>
 </LinearLayout>
